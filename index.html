@@ -3,132 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Josphat Kimeo | Kamba Gospel Artist</title>
+<title>Josphat Kimeo | Official Ministry</title>
 <style>
+    :root {
+        --primary: #3b2f2f;
+        --accent: #d4af37;
+        --glass: rgba(255, 255, 255, 0.9);
+    }
+
     body {
         margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #fcfaf7;
-        color: #333;
-        line-height: 1.8;
+        font-family: 'Playfair Display', serif; /* Elegant, premium font */
+        background-color: #f8f5f0;
+        color: #1a1a1a;
     }
 
+    /* Cinematic Header */
     header {
-        background: linear-gradient(rgba(59, 47, 47, 0.8), rgba(59, 47, 47, 0.8)), url('Jossy.jpeg'); /* Add his photo here later */
-        background-size: cover;
-        background-position: center;
-        background-color: #3b2f2f;
+        position: relative;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('grandpa.jpg') no-repeat center top/cover;
         color: white;
-        text-align: center;
-        padding: 80px 20px;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
     }
 
-    header h1 {
+    header::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.2), #f8f5f0);
+    }
+
+    .header-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+    }
+
+    .header-content h1 {
+        font-size: clamp(40px, 8vw, 80px);
         margin: 0;
-        font-size: 42px;
-        letter-spacing: 2px;
+        letter-spacing: 4px;
         text-transform: uppercase;
     }
 
-    header p {
-        font-size: 20px;
-        margin-top: 10px;
-        opacity: 0.9;
+    /* Floating Bio Card */
+    .bio-card {
+        max-width: 700px;
+        margin: -100px auto 50px;
+        position: relative;
+        z-index: 20;
+        background: var(--glass);
+        backdrop-filter: blur(10px);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        text-align: center;
+        border: 1px solid rgba(255,255,255,0.3);
     }
 
-    section {
-        padding: 60px 20px;
+    .bio-card h2 {
+        font-size: 28px;
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+
+    .bio-card p {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.8;
+        font-size: 18px;
+        color: #444;
+    }
+
+    /* Video Section - The "Stage" */
+    .video-section {
+        background-color: #1a1a1a;
+        padding: 100px 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .video-wrapper {
+        max-width: 1000px;
+        margin: 40px auto;
+        border: 10px solid #222;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+    }
+
+    .video-wrapper iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: none;
+        display: block;
+    }
+
+    /* Quote/Scripture Section */
+    .scripture-break {
+        padding: 80px 20px;
+        text-align: center;
+        font-size: 30px;
+        font-style: italic;
+        color: var(--primary);
         max-width: 800px;
         margin: auto;
     }
 
-    h2 {
-        color: #3b2f2f;
-        border-bottom: 2px solid #d4af37; /* Gold accent */
-        display: inline-block;
-        margin-bottom: 20px;
-    }
-
-    .music-container {
-        background: #fff;
-        padding: 20px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        border-radius: 8px;
-    }
-
-    .music iframe {
-        width: 100%;
-        height: 450px;
-        border-radius: 5px;
-        border: none;
-    }
-
-    .scripture {
-        background-color: #3b2f2f;
-        color: #f4f1ea;
-        padding: 40px;
-        text-align: center;
-        font-style: italic;
-        font-size: 22px;
-        margin-top: 40px;
-    }
-
-    .contact-btn {
-        display: inline-block;
-        background-color: #25d366; /* WhatsApp Green */
+    /* Contact Section */
+    .contact-footer {
+        background: var(--primary);
         color: white;
-        padding: 15px 30px;
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    .whatsapp-btn {
+        display: inline-block;
+        background: #25d366;
+        color: white;
+        padding: 20px 40px;
         border-radius: 50px;
         text-decoration: none;
+        font-size: 20px;
         font-weight: bold;
-        margin-top: 20px;
+        transition: transform 0.3s ease;
+        margin-top: 30px;
+    }
+
+    .whatsapp-btn:hover {
+        transform: scale(1.05);
     }
 
     footer {
-        background-color: #222;
-        color: #888;
+        padding: 20px;
+        font-size: 12px;
+        opacity: 0.6;
         text-align: center;
-        padding: 30px;
-        font-size: 14px;
+        background: #111;
+        color: white;
     }
+
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
-    <h1>Josphat Kimeo</h1>
-    <p>Kamba Gospel Artist | Worship & Ministry</p>
+    <div class="header-content">
+        <h1>JOSPHAT KIMEO</h1>
+        <p>A Voice of Worship | Kamba Gospel</p>
+    </div>
 </header>
 
-<section>
-    <h2>About the Ministry</h2>
+<div class="bio-card">
+    <h2>The Ministry</h2>
     <p>
-        Josphat Kimeo is a seasoned gospel artist dedicated to spreading the message of Christ through the rich sounds of Kamba and Swahili worship. With a heart for the Word, his music serves as a bridge, bringing hope and spiritual renewal to listeners across East Africa and beyond.
+        Authentic. Soulful. Rooted in Faith. Josphat Kimeo is bringing the timeless message of the Gospel to a new generation through the melodic beauty of Kamba and Swahili worship. 
     </p>
-</section>
+</div>
 
-<section class="music">
-    <h2>Latest Release</h2>
-    <div class="music-container">
-        <p><strong>Kava Yesu (Afadhali Yesu) – Official Audio</strong></p>
-        <iframe src="https://youtu.be/idKz4ojMtOk"></iframe>
+<section class="video-section">
+    <h2 style="color: var(--accent);">Featured Release</h2>
+    <p>Kava Yesu (Afadhali Yesu) — Official Audio</p>
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/S2pEAs4zBVs?rel=0" allowfullscreen></iframe>
     </div>
 </section>
 
-<section class="scripture">
-    “Work out your own salvation with fear and trembling.”<br>
-    <span style="font-size: 16px; opacity: 0.8;">— Philippians 2:12</span>
-</section>
+<div class="scripture-break">
+    “Work out your own salvation with fear and trembling.”
+    <div style="font-size: 18px; margin-top: 10px; opacity: 0.7;">Philippians 2:12</div>
+</div>
 
-<section style="text-align: center;">
-    <h2>Bookings & Inquiries</h2>
-    <p>For ministry invitations, church events, or music inquiries:</p>
-    <p><strong>Phone:</strong> +254 722 712 494</p>
-    <a href="https://wa.me/254722712494" class="contact-btn">Message on WhatsApp</a>
+<section class="contact-footer">
+    <h2>Ministry Inquiries</h2>
+    <p>For bookings and ministering invitations</p>
+    <p style="font-size: 24px;">+254 722 712 494</p>
+    <a href="https://wa.me/254722712494" class="whatsapp-btn">Message via WhatsApp</a>
 </section>
 
 <footer>
-    &copy; 2026 Josphat Kimeo Ministry | All Rights Reserved
+    &copy; 2026 Josphat Kimeo | Designed with Excellence
 </footer>
 
 </body>
