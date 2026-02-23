@@ -34,7 +34,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('grandpa.jpg') no-repeat center center/cover;
+    /* FIX: Prioritizing the top of the photo to keep the face in view */
+    background: url('grandpa.jpg') no-repeat center 10%/cover;
     color: white;
     text-align: center;
 }
@@ -72,6 +73,8 @@ header::after {
     border-radius: 16px;
     box-shadow: 0 25px 50px rgba(0,0,0,0.08);
     text-align: center;
+    position: relative;
+    z-index: 5;
 }
 
 .bio-card h2 {
@@ -100,19 +103,25 @@ header::after {
     font-size: 36px;
 }
 
+/* FIX: This wrapper prevents 'Refused to Connect' and maintains 16:9 ratio */
 .video-wrapper {
     max-width: 1000px;
     margin: 40px auto;
-    border-radius: 12px;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
     overflow: hidden;
+    border-radius: 12px;
     box-shadow: 0 0 60px rgba(212,175,55,0.15);
 }
 
 .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    aspect-ratio: 16/9;
+    height: 100%;
     border: none;
-    display: block;
 }
 
 .more-music {
@@ -129,6 +138,7 @@ header::after {
 
 .music-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     max-width: 1000px;
     margin: auto;
@@ -230,16 +240,15 @@ footer {
     <h2>Featured Release</h2>
     <p>Kava Yesu (Afadhali Yesu) | Official Audio</p>
     <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/S2pEAs4zBVs?rel=0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/S2pEAs4zBVs?rel=0" allowfullscreen loading="lazy"></iframe>
     </div>
 </section>
 
 <section class="more-music">
     <h2>More Music</h2>
     <div class="music-grid">
-        <!-- Replace these video IDs with more songs -->
-        <iframe src="https://www.youtube.com/embed/S2pEAs4zBVs" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/S2pEAs4zBVs" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/S2pEAs4zBVs" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://www.youtube.com/embed/S2pEAs4zBVs" allowfullscreen loading="lazy"></iframe>
     </div>
 </section>
 
